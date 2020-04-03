@@ -1,0 +1,17 @@
+---
+ - name: env variable setting
+   hosts: windows
+   tasks: 
+     - name: Set an environment variable for all users
+       win_environment:
+         state: present
+         name: java
+         value: c:\progamfiles
+         level: machine
+
+     - name: Remove an environment variable for the current user
+       win_environment:
+         state: present
+         name: jboss
+         value: c:\jboss
+         level: user

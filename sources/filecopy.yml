@@ -1,0 +1,12 @@
+---
+ - name: copying the file
+   hosts: windows
+   tasks:
+     - name: creating a directory called playbook in c disk
+       win_file:
+         path: C:\playbook
+         state: directory
+     - name: copy the file ansible-controller to windows machine
+       win_copy:
+         src: sources/tmp.txt
+         dest: C:\tmp.txt

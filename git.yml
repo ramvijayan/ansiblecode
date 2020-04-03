@@ -1,0 +1,9 @@
+---
+ - name: installing package for sravni
+   hosts: windows
+   tasks:
+     - name: installing git 
+       win_chocolatey:
+         name: git
+         state: present
+         validate_certs: no

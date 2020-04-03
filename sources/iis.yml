@@ -1,0 +1,11 @@
+---
+ - name: installing ansible
+   hosts: 13.68.152.150
+   tasks: 
+     - name: Install IIS
+       win_feature:
+         name: "Web-Server"
+         state: absent
+         restart: yes
+         include_sub_features: yes
+         include_management_tools: yes

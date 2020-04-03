@@ -1,0 +1,20 @@
+---
+ - name: playbook for create a local user
+   hosts: windows
+   tasks:
+     - name: Ensure user mohan is created and use custom credentials to create the user
+       win_domain_user:
+         name: raj
+         firstname: raj
+         surname: v
+         password: Test@12345
+         state: present
+         domain_username: chennaidryice\usernode
+         domain_password: Azurevm#1234
+         domain_server: node1.chennaidryice.com
+     - name : allow remote access to raj
+       win_group_membership:
+         name: Remote Desktop Users
+         members:
+           - chennaidryice\raj          
+         state: present
